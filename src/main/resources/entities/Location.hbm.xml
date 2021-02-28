@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+
+    <class name="entities.Location" table="location">
+        <id name="id" column="id"/>
+        <property name="city" column="city"/>
+        <property name="state" column="state"/>
+        <property name="postcode" column="postcode"/>
+        <many-to-one name="street" column="street_id"
+                     class="entities.Street"
+                     cascade="save-update"/>
+        <many-to-one name="timezone" column="timezone_id"
+                     class="entities.Timezone"
+                     cascade="save-update"/>
+        <many-to-one name="coordinates" column="coordinates_id"
+                     class="entities.Coordinates"
+                     cascade="save-update"/>
+    </class>
+</hibernate-mapping>

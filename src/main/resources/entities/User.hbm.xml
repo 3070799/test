@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+
+    <class name="entities.User" table="user">
+        <id name="id" column="id"/>
+        <property name="gender" column="gender"/>
+        <property name="email" column="email"/>
+        <property name="phone" column="phone"/>
+        <property name="cell" column="cell"/>
+        <property name="nat" column="nat"/>
+        <many-to-one name="name" column="name_id"
+                     class="entities.Name"
+                     cascade="save-update"/>
+        <many-to-one name="location" column="location_id"
+                     class="entities.Location"
+                     cascade="save-update"/>
+        <many-to-one name="login" column="login_id"
+                     class="entities.Login"
+                     cascade="save-update"/>
+        <many-to-one name="dob" column="dob_id"
+                     class="entities.Dob"
+                     cascade="save-update"/>
+        <many-to-one name="registered" column="registered_id"
+                     class="entities.Registered"
+                     cascade="save-update"/>
+        <many-to-one name="ID" column="ID_id"
+                     class="entities.ID"
+                     cascade="save-update"/>
+        <many-to-one name="picture" column="picture_id"
+                     class="entities.Picture"
+                     cascade="save-update"/>
+    </class>
+</hibernate-mapping>
